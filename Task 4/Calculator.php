@@ -9,16 +9,16 @@ include("../CommonClass.php");
 
 //Exception handling
 try {
-	array_shift($argv);
-	$strFuncName = array_shift($argv); // get action name
-	$strParams = array_shift($argv); // get parameters
+    array_shift($argv);
+    $strFuncName = array_shift($argv); // get action name
+    $strParams = array_shift($argv); // get parameters
 
-	$objCommonClass = new CommonClass();
-	if(method_exists($objCommonClass, $strFuncName) && $strFuncName == "add") { // to check method exists or not
-		echo $objCommonClass->add($strParams,4);
-	} else {
-		throw new Exception("Invalid method..!", 1);
-	}
+    $objCommonClass = new CommonClass();
+    if (method_exists($objCommonClass, $strFuncName) && $strFuncName == "add") { // to check method exists or not
+        echo $objCommonClass->add($strParams, 4);
+    } else {
+        throw new Exception("Invalid method..!", 1);
+    }
 } catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
+    echo 'Caught exception: ', $e->getMessage(), "\n";
 }
